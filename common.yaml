@@ -406,68 +406,64 @@ checks:
 
 # List of one or more shell commands or scripts to execute before all
 # the actions for each repository.
-# before_actions:
-    # - echo Starting actions.
+before_actions:
+    - "echo \"$(date '+%Y-%m-%d %H:%M:%S') actions for {repository_label} started.\""
 
 # List of one or more shell commands or scripts to execute before
 # creating a backup, run once per repository.
 before_backup:
-    - "start_time=$(date +%s)"
     - "echo \"$(date '+%Y-%m-%d %H:%M:%S') backup to {repository_label} started.\""
-
-# List of one or more shell commands or scripts to execute before
-# pruning, run once per repository.
-before_prune:
-    - echo Starting pruning.
 
 # List of one or more shell commands or scripts to execute before
 # compaction, run once per repository.
 before_compact:
-    - echo Starting compaction.
+    - "echo \"$(date '+%Y-%m-%d %H:%M:%S') compaction of {repository_label} started.\""
+
+# List of one or more shell commands or scripts to execute before
+# pruning, run once per repository.
+before_prune:
+    - "echo \"$(date '+%Y-%m-%d %H:%M:%S') pruning of {repository_label} started.\""
 
 # List of one or more shell commands or scripts to execute before
 # consistency checks, run once per repository.
 before_check:
-    - echo Starting checks.
+    - "echo \"$(date '+%Y-%m-%d %H:%M:%S') checking of {repository_label} started.\""
 
 # List of one or more shell commands or scripts to execute before
 # extracting a backup, run once per repository.
 before_extract:
-    - echo Starting extracting.
+    - "echo \"$(date '+%Y-%m-%d %H:%M:%S') extracting from {repository_label} started.\""
+
 
 # List of one or more shell commands or scripts to execute after
 # creating a backup, run once per repository.
 after_backup:
-    - "end_time=$(date +%s)"
-    - "elapsed_time=$((end_time - start_time))"
-    - "printf -v formatted_time '%02d:%02d:%02d' $((elapsed_time / 3600)) $(((elapsed_time % 3600) / 60)) $((elapsed_time % 60))"
-    - "echo \"$(date '+%Y-%m-%d %H:%M:%S') backup to {repository_label} completed in $formatted_time\""
-
+    - "echo \"$(date '+%Y-%m-%d %H:%M:%S') backup to {repository_label} completed.\""
 
 # List of one or more shell commands or scripts to execute after
 # compaction, run once per repository.
 after_compact:
-    - echo Finished compaction.
+    - "echo \"$(date '+%Y-%m-%d %H:%M:%S') compaction of {repository_label} completed.\""
 
 # List of one or more shell commands or scripts to execute after
 # pruning, run once per repository.
 after_prune:
-    - echo Finished pruning.
+    - "echo \"$(date '+%Y-%m-%d %H:%M:%S') pruning of {repository_label} completed.\""
 
 # List of one or more shell commands or scripts to execute after
 # consistency checks, run once per repository.
 after_check:
-    - echo Finished checks.
+    - "echo \"$(date '+%Y-%m-%d %H:%M:%S') checking of {repository_label} completed.\""
 
 # List of one or more shell commands or scripts to execute after
 # extracting a backup, run once per repository.
 after_extract:
-    - echo Finished extracting.
+    - "echo \"$(date '+%Y-%m-%d %H:%M:%S') extracting from {repository_label} completed.\""
 
 # List of one or more shell commands or scripts to execute after all
 # actions for each repository.
-# after_actions:
-    # - echo Finished actions.
+after_actions:
+    - "echo \"$(date '+%Y-%m-%d %H:%M:%S') actions for {repository_label} completed.\""
 
 # List of one or more shell commands or scripts to execute when an
 # exception occurs during a "create", "prune", "compact", or "check"
