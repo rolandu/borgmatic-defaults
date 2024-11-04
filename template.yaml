@@ -27,8 +27,19 @@ repositories:
 # Defaults to not set.
 encryption_passphrase: "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"
 
+# Alternative: use a passcommand
+# encryption_passcommand: cat path/to/borg-repokey
+
+# --> Override the ssh command if needed
 # Command to use instead of "ssh". This can be used to specify ssh
 # options. Defaults to not set.
 # ssh_command: ssh -i /path/to/private/key
+
+# --> Override compression for slow connections if fast processor present
+# Type of compression to use when creating archives. (Compression
+# level can be added separated with a comma, like "zstd,7".) See
+# http://borgbackup.readthedocs.io/en/stable/usage/create.html for
+# details. Defaults to "lz4".
+# compression: auto,zlib,3
 
 <<: !include /etc/borgmatic-defaults/common.yaml
