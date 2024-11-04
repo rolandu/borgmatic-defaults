@@ -406,8 +406,8 @@ checks:
 
 # List of one or more shell commands or scripts to execute before all
 # the actions for each repository.
-before_actions:
-    - "echo \"$(date '+%Y-%m-%d %H:%M:%S') actions for {repository_label} started.\""
+#before_actions:
+#    - "echo \"$(date '+%Y-%m-%d %H:%M:%S') actions for {repository_label} started.\""
 
 # List of one or more shell commands or scripts to execute before
 # creating a backup, run once per repository.
@@ -462,8 +462,8 @@ after_extract:
 
 # List of one or more shell commands or scripts to execute after all
 # actions for each repository.
-after_actions:
-    - "echo \"$(date '+%Y-%m-%d %H:%M:%S') actions for {repository_label} completed.\""
+#after_actions:
+#    - "echo \"$(date '+%Y-%m-%d %H:%M:%S') actions for {repository_label} completed.\""
 
 # List of one or more shell commands or scripts to execute when an
 # exception occurs during a "create", "prune", "compact", or "check"
